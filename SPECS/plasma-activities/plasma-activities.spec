@@ -15,11 +15,14 @@ Summary:        Plasma Activities support
 License:        GPL-2.0-or-later
 URL:            https://www.kde.org
 VCS:            git:https://invent.kde.org/plasma/plasma-activities
-#!RemoteAsset
+#!RemoteAsset:  sha256:4fe5980ebcc7470216d8ce937003c0f93b9416b0b615a3f8a0488cd26ee5a511
 Source:         https://download.kde.org/stable/plasma/%{version}/%{name}-%{version}.tar.xz
+BuildSystem:    cmake
+
+BuildOption(conf):  -DBUILD_TESTING=OFF
+BuildOption(conf):  -DBUILD_QCH:BOOL=ON
 
 BuildRequires:  doxygen
-BuildRequires:  fdupes
 BuildRequires:  kf6-extra-cmake-modules >= %{kf6_version}
 BuildRequires:  cmake(KF6Config) >= %{kf6_version}
 BuildRequires:  cmake(KF6CoreAddons) >= %{kf6_version}
@@ -48,19 +51,6 @@ Requires:       cmake(Qt6Core) >= %{qt6_version}
 Kactivities provides an API for using and interacting with the Plasma Activities Manager.
 Development files.
 
-%prep
-%autosetup -p1 -n %{name}-%{version}
-
-%build
-%cmake -DBUILD_QCH:BOOL=ON
-
-%kf6_build
-
-%install
-%kf6_install
-
-%fdupes %{buildroot}
-
 %files
 %license LICENSES/*
 %{_kf6_debugdir}/plasma-activities.categories
@@ -77,4 +67,4 @@ Development files.
 %{_kf6_pkgconfigdir}/PlasmaActivities.pc
 
 %changelog
-%{?autochangelog}
+%autochangelog
