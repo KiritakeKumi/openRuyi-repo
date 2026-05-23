@@ -18,10 +18,11 @@ VCS:            git:https://invent.kde.org/frameworks/kwindowsystem
 Source0:        https://download.kde.org/stable/frameworks/6.22/%{rname}-%{version}.tar.xz
 BuildSystem:    cmake
 
+BuildOption(conf):  -DBUILD_TESTING=OFF
+
 BuildRequires:  gcc
 BuildRequires:  gcc-c++
 BuildRequires:  cmake
-BuildRequires:  fdupes
 BuildRequires:  xz
 BuildRequires:  doxygen
 BuildRequires:  graphviz
@@ -58,12 +59,6 @@ KWindowSystem provides information about the state of the window manager and
 allows asking the window manager to change the using a more high-level
 interface than the NETWinInfo/NETRootInfo low-level classes.
 
-%package        imports
-Summary:        QML Bindings for KWindowSystem
-
-%description    imports
-QML Bindings for KWindowSystem.
-
 %package        devel
 Summary:        KDE Access to window manager: Build Environment
 Requires:       %{name}%{?_isa} = %{version}-%{release}
@@ -80,22 +75,6 @@ allows asking the window manager to change the using a more high-level
 interface than the NETWinInfo/NETRootInfo low-level classes.
 Development files.
 
-%prep
-%autosetup -p1 -n %{rname}-%{version}
-
-%build
-%cmake_kf6 -DBUILD_TESTING=OFF
-
-%kf6_build
-
-%install
-%kf6_install
-
-%fdupes %{buildroot}
-
-%check
-# Upstream autotests require a running X server; skip in buildroot
-
 %files
 %license LICENSES/*
 %doc README.md
@@ -106,8 +85,6 @@ Development files.
 %{_kf6_plugindir}/kf6/kwindowsystem/KF6WindowSystemX11Plugin.so
 %{_kf6_libdir}/libKF6WindowSystem.so.*
 %{_datadir}/locale/*/LC_MESSAGES/kwindowsystem6_qt.qm
-
-%files imports
 %{_kf6_qmldir}/org/kde/kwindowsystem/
 
 %files devel
