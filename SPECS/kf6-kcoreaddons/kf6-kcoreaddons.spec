@@ -20,8 +20,14 @@ URL:            https://www.kde.org
 VCS:            https://invent.kde.org/frameworks/kcoreaddons
 #!RemoteAsset:  sha256:843d27cd76ca890c4f352d6f29d2e2b8747883602b63119106b1eb229b95e649
 Source:         https://download.kde.org/stable/frameworks/6.22/%{rname}-%{version}.tar.xz
+BuildSystem:    cmake
 
-BuildRequires:  fdupes
+BuildOption(conf):  -DBUILD_TESTING=OFF
+BuildOption(conf):  -DENABLE_PCH:BOOL=FALSE
+BuildOption(conf):  -DBUILD_PYTHON_BINDINGS:BOOL=OFF
+BuildOption(conf):  -DBUILD_QCH:BOOL=OFF
+BuildOption(conf):  -DKCOREADDONS_BUILD_PYTHON_DOCS:BOOL=OFF
+
 BuildRequires:  kf6-extra-cmake-modules >= %{_kf6_version}
 BuildRequires:  shared-mime-info
 BuildRequires:  cmake(Qt6Core) >= %{qt6_version}
@@ -50,13 +56,6 @@ such as manipulating mime types, autosaving files, creating backup files,
 generating random sequences, performing text manipulations such as macro
 replacement, accessing user information and many more.
 
-%package        imports
-Summary:        QML imports for kcoreaddons
-Requires:       %{name}%{?_isa} = %{version}-%{release}
-
-%description    imports
-QML imports for kcoreaddons.
-
 %package        devel
 Summary:        Utilities for core application functionality and accessing the OS
 Requires:       %{name}%{?_isa} = %{version}-%{release}
@@ -76,24 +75,6 @@ Requires:       %{name}%{?_isa} = %{version}-%{release}
 %description -n python-%{name}
 The package contains the PySide6 bindings library for %{name}.
 
-%prep
-%autosetup -p1 -n %{rname}-%{version}
-
-%build
-# ENABLE_PCH breaks the build locally with 'error: is pie differs in PCH file vs. current file'
-%cmake_kf6 \
-  -DENABLE_PCH:BOOL=FALSE \
-  -DBUILD_PYTHON_BINDINGS:BOOL=OFF \
-  -DBUILD_QCH:BOOL=OFF \
-  -DKCOREADDONS_BUILD_PYTHON_DOCS:BOOL=OFF
-
-%kf6_build
-
-%install
-%kf6_install
-
-%fdupes %{buildroot}
-
 %files
 %license LICENSES/*
 %doc README.md
@@ -102,8 +83,6 @@ The package contains the PySide6 bindings library for %{name}.
 %{_kf6_debugdir}/kcoreaddons.renamecategories
 %{_kf6_libdir}/libKF6CoreAddons.so.*
 %{_datadir}/locale/*/LC_MESSAGES/kcoreaddons6_qt.qm
-
-%files imports
 %{_kf6_qmldir}/org/kde/coreaddons/
 
 %files devel
