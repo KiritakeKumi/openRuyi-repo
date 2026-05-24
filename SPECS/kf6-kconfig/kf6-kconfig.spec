@@ -7,18 +7,18 @@
 %define qt6_version 6.8.0
 
 %define rname kconfig
-# Full KF6 version (e.g. 6.22.0)
+# Full KF6 version (e.g. 6.26.0)
 %{!?_kf6_version: %global _kf6_version %{version}}
 
 Name:           kf6-kconfig
-Version:        6.22.0
+Version:        6.26.0
 Release:        %autorelease
 Summary:        Advanced configuration system
 License:        LGPL-2.1-or-later AND GPL-2.0-or-later
 URL:            https://www.kde.org
 VCS:            https://invent.kde.org/frameworks/kconfig
-#!RemoteAsset
-Source:         https://download.kde.org/stable/frameworks/6.22/%{rname}-%{version}.tar.xz
+#!RemoteAsset:  sha256:8bb5aa918d8e60ec140a33db3c329414d2319dc97a1644b368da5576125c92b5
+Source:         https://download.kde.org/stable/frameworks/6.26/%{rname}-%{version}.tar.xz
 
 BuildRequires:  fdupes
 BuildRequires:  kf6-extra-cmake-modules >= %{_kf6_version}

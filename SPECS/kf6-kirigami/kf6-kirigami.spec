@@ -7,18 +7,18 @@
 %define qt6_version 6.8.0
 
 %define rname kirigami
-# Full KF6 version (e.g. 6.22.0)
+# Full KF6 version (e.g. 6.26.0)
 %{!?_kf6_version: %global _kf6_version %{version}}
 
 Name:           kf6-kirigami
-Version:        6.22.0
+Version:        6.26.0
 Release:        %autorelease
 Summary:        Set of QtQuick components
 License:        LGPL-2.1-or-later
 URL:            https://www.kde.org
 VCS:            git:https://invent.kde.org/frameworks/kirigami
-#!RemoteAsset
-Source:         https://download.kde.org/stable/frameworks/6.22/%{rname}-%{version}.tar.xz
+#!RemoteAsset:  sha256:b268785b271198acec7fe4b6177eafdee890e180245c7168916da3ccff1425ff
+Source:         https://download.kde.org/stable/frameworks/6.26/%{rname}-%{version}.tar.xz
 
 BuildRequires:  kf6-extra-cmake-modules >= %{_kf6_version}
 BuildRequires:  qt6-qtbase-private-devel >= %{qt6_version}
@@ -80,8 +80,13 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/*@*
 # This is actually a plugin
 %{_kf6_libdir}/libKirigamiPrivate.so.*
 %{_kf6_libdir}/libKirigami.so.*
+%{_kf6_libdir}/libKirigamiControls.so.*
 %{_kf6_libdir}/libKirigamiDelegates.so.*
 %{_kf6_libdir}/libKirigamiDialogs.so.*
+%{_kf6_libdir}/libKirigamiForms.so.*
+%{_kf6_libdir}/libKirigamiFormsPrivateCards.so.*
+%{_kf6_libdir}/libKirigamiFormsPrivateFlat.so.*
+%{_kf6_libdir}/libKirigamiFormsPrivateTemplates.so.*
 %{_kf6_libdir}/libKirigamiLayouts.so.*
 %{_kf6_libdir}/libKirigamiLayoutsPrivate.so.*
 %{_kf6_libdir}/libKirigamiPlatform.so.*
@@ -96,8 +101,13 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/*@*
 %dir %{_kf6_includedir}/Kirigami/
 %{_kf6_includedir}/Kirigami/Platform/
 %{_kf6_libdir}/libKirigami.so
+%{_kf6_libdir}/libKirigamiControls.so
 %{_kf6_libdir}/libKirigamiDelegates.so
 %{_kf6_libdir}/libKirigamiDialogs.so
+%{_kf6_libdir}/libKirigamiForms.so
+%{_kf6_libdir}/libKirigamiFormsPrivateCards.so
+%{_kf6_libdir}/libKirigamiFormsPrivateFlat.so
+%{_kf6_libdir}/libKirigamiFormsPrivateTemplates.so
 %{_kf6_libdir}/libKirigamiLayouts.so
 %{_kf6_libdir}/libKirigamiLayoutsPrivate.so
 %{_kf6_libdir}/libKirigamiPlatform.so

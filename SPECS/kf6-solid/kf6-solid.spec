@@ -9,14 +9,14 @@
 %define rname solid
 
 Name:           kf6-solid
-Version:        6.22.0
+Version:        6.26.0
 Release:        %autorelease
 Summary:        KDE Desktop hardware abstraction
 License:        LGPL-2.1-or-later
 URL:            https://www.kde.org
 VCS:            git:https://invent.kde.org/frameworks/solid
-#!RemoteAsset
-Source:         https://download.kde.org/stable/frameworks/6.22/%{rname}-%{version}.tar.xz
+#!RemoteAsset:  sha256:85cfab9b0787f59478661140997c485fadab62cec535ffcef2953d312f736c4a
+Source:         https://download.kde.org/stable/frameworks/6.26/%{rname}-%{version}.tar.xz
 
 BuildRequires:  bison
 BuildRequires:  fdupes

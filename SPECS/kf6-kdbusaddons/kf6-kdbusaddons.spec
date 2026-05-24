@@ -11,14 +11,14 @@
 %{!?_kf6_version: %global _kf6_version %{version}}
 
 Name:           kf6-kdbusaddons
-Version:        6.22.0
+Version:        6.26.0
 Release:        %autorelease
 Summary:        Convenience classes for QtDBus
 License:        LGPL-2.1-or-later
 URL:            https://www.kde.org
 VCS:            https://invent.kde.org/frameworks/kdbusaddons
-#!RemoteAsset
-Source:         https://download.kde.org/stable/frameworks/6.22/%{rname}-%{version}.tar.xz
+#!RemoteAsset:  sha256:894bb2e032c6f6d9b4a58b8b24678692a9f4e70e953ff4dabda2ed4e9b5431e2
+Source:         https://download.kde.org/stable/frameworks/6.26/%{rname}-%{version}.tar.xz
 
 BuildRequires:  fdupes
 BuildRequires:  kf6-extra-cmake-modules >= %{_kf6_version}
