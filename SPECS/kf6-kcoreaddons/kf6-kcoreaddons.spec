@@ -12,14 +12,14 @@
 %{!?_kf6_version: %global _kf6_version %{version}}
 
 Name:           kf6-kcoreaddons
-Version:        6.22.0
+Version:        6.26.0
 Release:        %autorelease
 Summary:        Utilities for core application functionality and accessing the OS
 License:        LGPL-2.1-or-later
 URL:            https://www.kde.org
 VCS:            https://invent.kde.org/frameworks/kcoreaddons
-#!RemoteAsset:  sha256:843d27cd76ca890c4f352d6f29d2e2b8747883602b63119106b1eb229b95e649
-Source:         https://download.kde.org/stable/frameworks/6.22/%{rname}-%{version}.tar.xz
+#!RemoteAsset:  sha256:92fdbfab68e52d9eacf44a992f01cb364d6395c24441e2fd47dd48a23b3281f6
+Source:         https://download.kde.org/stable/frameworks/6.26/%{rname}-%{version}.tar.xz
 BuildSystem:    cmake
 
 BuildOption(conf):  -DBUILD_TESTING=OFF
@@ -37,6 +37,8 @@ BuildRequires:  cmake(Qt6LinguistTools) >= %{qt6_version}
 BuildRequires:  cmake(Qt6Qml) >= %{qt6_version}
 BuildRequires:  cmake(Qt6QuickTest) >= %{qt6_version}
 BuildRequires:  cmake(Qt6ToolsTools) >= %{qt6_version}
+BuildRequires:  pkgconfig(mount)
+BuildRequires:  pkgconfig(libudev)
 BuildRequires:  qt6-qttools
 BuildRequires:  qt6-doctools
 BuildRequires:  qt6-linguist
