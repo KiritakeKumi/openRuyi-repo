@@ -83,11 +83,8 @@ By allowing to navigate a software library by search, categories, top lists alon
 %package        backend-packagekit
 Summary:        PackageKit Backend for Discover
 Requires:       PackageKit
-Requires:       appstream-provider
 Requires:       %{name}%{?_isa} = %{version}-%{release}
-Requires:       AppStream
-Provides:       discover-backend-packagekit = %{version}
-Obsoletes:      discover-backend-packagekit < %{version}
+Requires:       appstream
 
 %description    backend-packagekit
 A plugin for Discover to support management of system packages and repositories
@@ -98,8 +95,6 @@ using PackageKit.
 Summary:        Flatpak Backend for Discover
 Requires:       %{name}%{?_isa} = %{version}-%{release}
 Requires:       flatpak
-Provides:       discover-backend-flatpak = %{version}
-Obsoletes:      discover-backend-flatpak < %{version}
 
 %description    backend-flatpak
 A plugin for Discover to support installation and management of Flatpak
@@ -110,8 +105,6 @@ applications and repositories.
 %package        backend-fwupd
 Summary:        fwupd Backend for Discover
 Requires:       %{name}%{?_isa} = %{version}-%{release}
-Provides:       discover-backend-fwupd = %{version}
-Obsoletes:      discover-backend-fwupd < %{version}
 
 %description    backend-fwupd
 A plugin for Discover to support updates of system firmware using fwupd.
@@ -120,9 +113,6 @@ A plugin for Discover to support updates of system firmware using fwupd.
 %package        notifier
 Summary:        Update notifier for KDE Software Manager
 Requires:       %{name}%{?_isa} = %{version}-%{release}
-Obsoletes:      discover-plasmoid < %{version}
-Provides:       discover-notifier = %{version}
-Obsoletes:      discover-notifier < %{version}
 
 %description    notifier
 This is a notifier for Discover to inform the user that updates are available and allows the
