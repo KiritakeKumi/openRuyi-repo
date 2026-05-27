@@ -20,6 +20,20 @@ BuildRequires:  kf6-extra-cmake-modules
 
 Requires:       plasma-workspace
 Requires:       plasma-desktop
+Requires:       plasma-session
+Requires:       systemsettings
+Requires:       konsole
+Requires:       dolphin
+Requires:       kf6-kwindowsystem
+Requires:       kf6-kcoreaddons
+Requires:       kf6-kcmutils
+Requires:       kf6-kconfig-imports
+Requires:       kf6-qqc2-desktop-style
+
+Recommends:     discover
+Recommends:     mpv
+Recommends:     falkon
+Recommends:     sddm
 
 %description
 Set openRuyi wallpaper as the KDE Plasma default by overriding the
