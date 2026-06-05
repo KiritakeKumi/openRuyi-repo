@@ -20,13 +20,13 @@
 %{!?_plasma6_version: %define _plasma6_version %(echo %{_plasma6_bugfix} | awk -F. '{print $1"."$2}')}
 
 Name:           plasma-workspace
-Version:        6.5.5
+Version:        6.6.5
 Release:        %autorelease
 Summary:        The KDE Plasma Workspace Components
 License:        GPL-2.0-or-later
 URL:            https://www.kde.org
 VCS:            git:https://invent.kde.org/plasma/plasma-workspace.git
-#!RemoteAsset:  sha256:102ef093fb21e73b4a3f11edcc6934c5f1763366a31e5c049afb719840a4323f
+#!RemoteAsset:  sha256:2cb458d0830bdc1a49ffa404e8042f80efeeed575b111df929e8a87f3f7bd2f4
 Source:         https://invent.kde.org/plasma/%{name}/-/archive/v%{version}/%{name}-v%{version}.tar.gz
 Source1:        sddm.conf
 Source2:        waitforkded.conf
@@ -373,7 +373,6 @@ install -Dm 0644 %{SOURCE2} %{buildroot}%{_userunitdir}/plasma-plasmashell.servi
 %dir %{_kf6_configdir}/menus
 %config %{_kf6_configdir}/menus/plasma-applications.menu
 %config %{_kf6_configdir}/plasmanotifyrc
-%config %{_kf6_configdir}/taskmanagerrulesrc
 %doc %lang(en) %{_kf6_htmldir}/en/PolicyKit-kde/
 %doc %lang(en) %{_kf6_htmldir}/en/kcontrol/
 %doc %lang(en) %{_kf6_htmldir}/en/klipper/
@@ -401,6 +400,8 @@ install -Dm 0644 %{SOURCE2} %{buildroot}%{_userunitdir}/plasma-plasmashell.servi
 %{_kf6_applicationsdir}/kcm_style.desktop
 %{_kf6_applicationsdir}/kcm_users.desktop
 %{_kf6_applicationsdir}/kcm_wallpaper.desktop
+%{_kf6_applicationsdir}/org.kde.baloorunner.desktop
+%{_kf6_applicationsdir}/org.kde.secretprompter.desktop
 %{_kf6_applicationsdir}/org.kde.plasma-interactiveconsole.desktop
 %{_kf6_applicationsdir}/org.kde.kcolorschemeeditor.desktop
 %{_kf6_applicationsdir}/org.kde.kfontinst.desktop
@@ -482,7 +483,6 @@ install -Dm 0644 %{SOURCE2} %{buildroot}%{_userunitdir}/plasma-plasmashell.servi
 %{_kf6_notificationsdir}/freespacenotifier.notifyrc
 %{_kf6_notificationsdir}/libnotificationmanager.notifyrc
 %{_kf6_notificationsdir}/oom-notifier.notifyrc
-%{_kf6_notificationsdir}/phonon.notifyrc
 %{_kf6_plasmadir}/avatars/
 %{_kf6_plasmadir}/look-and-feel/
 %{_kf6_plasmadir}/plasmoids/
@@ -494,9 +494,7 @@ install -Dm 0644 %{SOURCE2} %{buildroot}%{_userunitdir}/plasma-plasmashell.servi
 %{_kf6_plugindir}/kf6/packagestructure/
 %{_kf6_plugindir}/kf6/parts/
 %{_kf6_plugindir}/kf6/thumbcreator/
-%{_kf6_plugindir}/phonon_platform/
 %{_kf6_plugindir}/plasma/
-%{_kf6_plugindir}/plasma5support/
 %{_kf6_plugindir}/plasmacalendarplugins/
 %{_kf6_qmldir}/org/kde/breeze/
 %{_kf6_qmldir}/org/kde/notificationmanager/
@@ -509,6 +507,7 @@ install -Dm 0644 %{SOURCE2} %{buildroot}%{_userunitdir}/plasma-plasmashell.servi
 %{_kf6_sharedir}/dbus-1/services/org.kde.krunner.service
 %{_kf6_sharedir}/dbus-1/services/org.kde.plasma.Notifications.service
 %{_kf6_sharedir}/dbus-1/services/org.kde.runners.baloo.service
+%{_kf6_sharedir}/dbus-1/services/org.kde.secretprompter.service
 %{_kf6_sharedir}/dbus-1/system-services/org.kde.fontinst.service
 %{_kf6_sharedir}/dbus-1/system.d/org.kde.fontinst.conf
 %{_kf6_sharedir}/desktop-directories/
@@ -522,7 +521,6 @@ install -Dm 0644 %{SOURCE2} %{buildroot}%{_userunitdir}/plasma-plasmashell.servi
 %{_kf6_sharedir}/konqsidebartng/
 %{_kf6_sharedir}/krunner/dbusplugins/plasma-runner-baloosearch.desktop
 %{_kf6_sharedir}/kstyle/
-%{_kf6_sharedir}/plasma5support/
 %{_kf6_sharedir}/polkit-1/actions/org.kde.fontinst.policy
 %{_kf6_sharedir}/solid/
 %dir %{_kf6_sharedir}/timezonefiles/
@@ -530,6 +528,7 @@ install -Dm 0644 %{SOURCE2} %{buildroot}%{_userunitdir}/plasma-plasmashell.servi
 %dir %{_kf6_sharedir}/xdg-desktop-portal/
 %{_kf6_sharedir}/xdg-desktop-portal/kde-portals.conf
 %{_libexecdir}/baloorunner
+%{_libexecdir}/ksecretprompter
 %{_kf6_libexecdir}/kauth/fontinst
 %{_kf6_libexecdir}/kauth/fontinst_helper
 %if %{with x11}
