@@ -15,13 +15,13 @@
 %{!?_plasma6_version: %define _plasma6_version %(echo %{_plasma6_bugfix} | awk -F. '{print $1"."$2}')}
 
 Name:           libkscreen
-Version:        6.5.5
+Version:        6.6.5
 Release:        %autorelease
 Summary:        Plasma screen management library
 License:        GPL-2.0-or-later
 URL:            https://www.kde.org
 VCS:            git:https://invent.kde.org/plasma/libkscreen.git
-#!RemoteAsset:  sha256:f90b83e120fabb2881ec7706254fd05a089b167fbf49fe16631aeb34b579c160
+#!RemoteAsset:  sha256:e59e1f10c84ffaa42e1eb5d312da33dd472a2895ccabc90bee8b238f3b4b842e
 Source:         https://invent.kde.org/plasma/%{name}/-/archive/v%{version}/%{name}-v%{version}.tar.gz
 BuildSystem:    cmake
 
@@ -46,6 +46,7 @@ BuildRequires:  cmake(Qt6WaylandClient) >= %{qt6_version}
 BuildRequires:  qt6-qttools
 BuildRequires:  qt6-doctools
 BuildRequires:  qt6-linguist
+BuildRequires:  python
 BuildRequires:  pkgconfig(wayland-client) >= 1.9
 BuildRequires:  pkgconfig(xcb)
 BuildRequires:  pkgconfig(xcb-randr)
