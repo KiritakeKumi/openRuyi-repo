@@ -15,13 +15,13 @@
 %{!?_plasma6_version: %define _plasma6_version %(echo %{_plasma6_bugfix} | awk -F. '{print $1"."$2}')}
 
 Name:           kpipewire
-Version:        6.5.5
+Version:        6.6.5
 Release:        %autorelease
 Summary:        PipeWire integration for KDE Plasma
 License:        LGPL-2.0-only AND LGPL-3.0-only
 URL:            https://www.kde.org
 VCS:            git:https://invent.kde.org/plasma/kpipewire.git
-#!RemoteAsset:  sha256:4ed4ad8cbc3524e2ee1eeb23f52b85979434972c3289e79de5407c618b1a3c66
+#!RemoteAsset:  sha256:ca35be322c83dd1021c126d30ea7b33653c83f6bd397f76aa0e3e333ef2aa858
 Source:         https://invent.kde.org/plasma/%{name}/-/archive/v%{version}/%{name}-v%{version}.tar.gz
 BuildSystem:    cmake
 
@@ -32,7 +32,7 @@ BuildRequires:  pkgconfig
 BuildRequires:  qt6-qtbase-private-devel >= %{qt6_version}
 BuildRequires:  cmake(KF6CoreAddons) >= %{kf6_version}
 BuildRequires:  cmake(KF6I18n) >= %{kf6_version}
-BuildRequires:  cmake(KWayland) >= %{_plasma6_version}
+BuildRequires:  cmake(KWayland) >= %{_plasma6_bugfix}
 BuildRequires:  cmake(PlasmaWaylandProtocols)
 BuildRequires:  cmake(Qt6DBus) >= %{qt6_version}
 BuildRequires:  cmake(Qt6OpenGL) >= %{qt6_version}
