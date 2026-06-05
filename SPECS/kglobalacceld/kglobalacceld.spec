@@ -13,13 +13,13 @@
 %{!?_plasma6_version: %define _plasma6_version %(echo %{_plasma6_bugfix} | awk -F. '{print $1"."$2}')}
 
 Name:           kglobalacceld
-Version:        6.5.5
+Version:        6.6.5
 Release:        %autorelease
 Summary:        Global keyboard shortcut daemon
 License:        LGPL-2.0-or-later
 URL:            https://www.kde.org
 VCS:            git:https://invent.kde.org/plasma/kglobalacceld.git
-#!RemoteAsset:  sha256:8127e9171e84437536e3a20ab889d33d72238ba61de9babddc1a59ce8dafe795
+#!RemoteAsset:  sha256:8b2b93ee7b22a3e809d0ab7927e93c9e4cf7f3b6cd435ea3fbea690742920bff
 Source:         https://invent.kde.org/plasma/%{name}/-/archive/v%{version}/%{name}-v%{version}.tar.gz
 BuildSystem:    cmake
 
