@@ -15,13 +15,13 @@
 %{!?_plasma6_version: %define _plasma6_version %(echo %{_plasma6_bugfix} | awk -F. '{print $1"."$2}')}
 
 Name:           plasma-nm
-Version:        6.5.5
+Version:        6.6.5
 Release:        %autorelease
 Summary:        Plasma applet written in QML for managing network connections
 License:        (GPL-2.0-only OR GPL-3.0-only) AND (LGPL-2.1-only OR LGPL-3.0-only)
 URL:            https://www.kde.org
 VCS:            git:https://invent.kde.org/plasma/plasma-nm.git
-#!RemoteAsset:  sha256:de4e18c227b6481c6d968cce2737ef3c7dc3b6a4ab7cca905e8077c9401abcef
+#!RemoteAsset:  sha256:9dc99c1849970c6925ca47723a5832add25f21ed1defd414fa5cccf9401ef21a
 Source:         https://invent.kde.org/plasma/%{name}/-/archive/v%{version}/%{name}-v%{version}.tar.gz
 BuildSystem:    cmake
 
@@ -227,6 +227,7 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/*@*
 %endif
 %{_kf6_applicationsdir}/kcm_cellular_network.desktop
 %{_kf6_applicationsdir}/kcm_mobile_hotspot.desktop
+%{_kf6_applicationsdir}/kcm_mobile_wired.desktop
 %{_kf6_applicationsdir}/kcm_mobile_wifi.desktop
 %{_kf6_applicationsdir}/kcm_networkmanagement.desktop
 %{_kf6_applicationsdir}/org.kde.vpnimport.desktop
@@ -237,6 +238,7 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/*@*
 %{_kf6_plugindir}/kf6/kded/networkmanagement.so
 %{_kf6_plugindir}/plasma/kcms/systemsettings/kcm_cellular_network.so
 %{_kf6_plugindir}/plasma/kcms/systemsettings/kcm_mobile_hotspot.so
+%{_kf6_plugindir}/plasma/kcms/systemsettings/kcm_mobile_wired.so
 %{_kf6_plugindir}/plasma/kcms/systemsettings/kcm_mobile_wifi.so
 %{_kf6_plugindir}/plasma/kcms/systemsettings_qwidgets/kcm_networkmanagement.so
 %dir %{_kf6_plugindir}/plasma/applets/
