@@ -15,19 +15,20 @@
 %{!?_plasma6_version: %define _plasma6_version %(echo %{_plasma6_bugfix} | awk -F. '{print $1"."$2}')}
 
 Name:           kscreen
-Version:        6.5.5
+Version:        6.6.5
 Release:        %autorelease
 Summary:        Screen management software by KDE
 License:        GPL-2.0-or-later
 URL:            https://www.kde.org
 VCS:            git:https://invent.kde.org/plasma/kscreen.git
-#!RemoteAsset:  sha256:76d68c91c8700d3a7607618944bd08bda861936d6f890004f32c227cf7736995
+#!RemoteAsset:  sha256:ab629c7d8b271bc4741d73f5aa67c99c3c28d2c9b5f4313a38aad7b933b82c51
 Source:         https://invent.kde.org/plasma/%{name}/-/archive/v%{version}/%{name}-v%{version}.tar.gz
 BuildSystem:    cmake
 
 BuildOption(conf):  -DBUILD_TESTING=OFF
 
 BuildRequires:  kf6-extra-cmake-modules >= %{kf6_version}
+BuildRequires:  cmake(KF6KirigamiPlatform) >= %{kf6_version}
 BuildRequires:  pkgconfig
 BuildRequires:  qt6-qtbase-private-devel >= %{qt6_version}
 BuildRequires:  qt6-qtwayland-devel >= %{qt6_version}
