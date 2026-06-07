@@ -35,6 +35,11 @@ traces and metrics from your application.
 %generate_buildrequires
 %pyproject_buildrequires
 
+%prep -a
+# Relax exact version pins on sibling packages
+sed -i 's/opentelemetry-api == /opentelemetry-api >= /' pyproject.toml
+sed -i 's/opentelemetry-semantic-conventions == /opentelemetry-semantic-conventions >= /' pyproject.toml
+
 %files -f %{pyproject_files}
 %doc README.rst
 %license LICENSE
