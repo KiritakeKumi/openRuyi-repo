@@ -8,13 +8,13 @@
 %define qt6_version 6.9.0
 
 Name:           falkon
-Version:        25.12.3
+Version:        26.04.2
 Release:        %autorelease
 Summary:        Modern web browser
 License:        GPL-3.0-or-later
 URL:            https://apps.kde.org/falkon
 VCS:            git:https://invent.kde.org/network/falkon.git
-#!RemoteAsset:  sha256:25f90957335058fff8536b511135e36d96e74c49fab45690be89b994015777b5
+#!RemoteAsset:  sha256:8f9a6e3650b6ee3e22664cfd78207148ab7bf39c4a421193f69cd5bbccd819e2
 Source0:        https://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz
 BuildSystem:    cmake
 
