@@ -8,12 +8,12 @@
 %define qt6_version 6.9.0
 
 Name:           kaccounts-integration
-Version:        25.12.3
+Version:        26.04.2
 Release:        %autorelease
 Summary:        KDE Accounts Providers
 License:        GPL-2.0-or-later
 VCS:            git:https://invent.kde.org/network/kaccounts-integration.git
-#!RemoteAsset:  sha256:71c20ae5ca1459f732cc3c92248885b2d1d84e251f2d1b0f462b00adda8fc3b6
+#!RemoteAsset:  sha256:7fbbb5b8b009588b114b84f4c5913b3e429fb004f9ad7ce1bbd8564530df9e96
 Source0:        https://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz
 BuildSystem:    cmake
 
