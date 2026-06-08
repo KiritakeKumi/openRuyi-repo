@@ -8,13 +8,13 @@
 %define qt6_version 6.9.0
 
 Name:           konsole
-Version:        25.12.3
+Version:        26.04.2
 Release:        %autorelease
 Summary:        KDE Terminal
 License:        GPL-2.0-or-later
 URL:            https://www.kde.org
 VCS:            git:https://invent.kde.org/utilities/konsole.git
-#!RemoteAsset:  sha256:c3e13be55cbe553ebd6ba5f04f9194c79a4ba15d1ed8f3d151ac7afae016f232
+#!RemoteAsset:  sha256:d81a696d6a316d0c8fabe3cecd83783f656ee97c70ced89513b3fd16e9d216ac
 Source0:        https://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz
 BuildSystem:    cmake
 
