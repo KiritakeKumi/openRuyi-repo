@@ -9,13 +9,13 @@
 %define qt6_version 6.9.0
 
 Name:           dolphin
-Version:        25.12.3
+Version:        26.04.2
 Release:        %autorelease
 Summary:        KDE File Manager
 License:        GPL-2.0-or-later
 URL:            https://www.kde.org
 VCS:            git:https://invent.kde.org/system/dolphin.git
-#!RemoteAsset:  sha256:9961de7cc076d9d7d598bb7f53afdebcfba20567093231f42ba72e031e089a3b
+#!RemoteAsset:  sha256:c7e90beb8ce13aea091494ae7ddfabde999b1297986a596403828010bec59346
 Source0:        https://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz
 BuildSystem:    cmake
 
@@ -95,10 +95,10 @@ rm -rf $RPM_BUILD_ROOT%{_kf6_htmldir}/*@*
 
 # ZSH completion script prevents running dolphin <tab> to open the application in the selected folder
 rm %{buildroot}%{_datadir}/zsh/site-functions/_dolphin
+ln -sf ../applications/org.kde.dolphin.desktop %{buildroot}%{_kf6_sharedir}/kglobalaccel/org.kde.dolphin.desktop
 
 %files -f %{name}.lang
 %doc README.md
-%doc %lang(en) %{_kf6_htmldir}/en/dolphin/
 %license LICENSES/*
 %{_kf6_applicationsdir}/org.kde.dolphin.desktop
 %{_kf6_appstreamdir}/org.kde.dolphin.appdata.xml
@@ -109,6 +109,7 @@ rm %{buildroot}%{_datadir}/zsh/site-functions/_dolphin
 %{_kf6_iconsdir}/hicolor/scalable/apps/org.kde.dolphin.svg
 %dir %{_kf6_libdir}/kconf_update_bin
 %{_kf6_libdir}/kconf_update_bin/dolphin_25.04_update_statusandlocationbarssettings
+%{_kf6_libdir}/kconf_update_bin/dolphin_update_splitviewsettings
 %{_kf6_sharedir}/dbus-1/services/org.kde.dolphin.FileManager1.service
 %{_kf6_sharedir}/kconf_update/dolphin_detailsmodesettings.upd
 %{_kf6_sharedir}/kconf_update/dolphin_replace_view_mode_with_view_settings_in_toolbar.py
