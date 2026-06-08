@@ -8,13 +8,13 @@
 %define qt6_version 6.9.0
 
 Name:           konqueror
-Version:        25.12.3
+Version:        26.04.2
 Release:        %autorelease
 Summary:        KDE File Manager and Browser
 License:        GPL-2.0-or-later
 URL:            https://www.kde.org
 VCS:            git:https://invent.kde.org/network/konqueror.git
-#!RemoteAsset:  sha256:8f383beada857b522a59b9259ae1f1f83554c5d25d3c39a39fb6f172ec0f889d
+#!RemoteAsset:  sha256:aa9a35f81fa1f30aac1d77b9008d074fb041b2a7c12319d1f8c9b194137e57de
 Source0:        https://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz
 BuildSystem:    cmake
 
@@ -95,18 +95,19 @@ rm -rf $RPM_BUILD_ROOT%{_kf6_htmldir}/*@*
 %find_lang %{name} --with-qt --with-html --all-name --generate-subpackages
 
 %files -f %{name}.lang
-%doc %lang(en) %{_kf6_htmldir}/en
 %license LICENSES/*
 %config %{_kf6_configdir}/autostart/konqy_preload.desktop
 %{_kf6_sharedir}/kcontrol/
 %{_kf6_applicationsdir}/bookmarks.desktop
 %{_kf6_applicationsdir}/kcm_bookmarks.desktop
+%{_kf6_applicationsdir}/kcm_speeddial.desktop
 %{_kf6_applicationsdir}/kfmclient.desktop
 %{_kf6_applicationsdir}/kfmclient_dir.desktop
 %{_kf6_applicationsdir}/kfmclient_html.desktop
 %{_kf6_applicationsdir}/kfmclient_war.desktop
 %{_kf6_applicationsdir}/konqbrowser.desktop
 %{_kf6_applicationsdir}/org.kde.konqueror.desktop
+%{_kf6_applicationsdir}/speeddial.desktop
 %{_kf6_appstreamdir}/org.kde.konqueror.appdata.xml
 %{_kf6_bindir}/kfmclient
 %{_kf6_bindir}/konqueror
@@ -125,6 +126,7 @@ rm -rf $RPM_BUILD_ROOT%{_kf6_htmldir}/*@*
 %{_kf6_plugindir}/konqueror_kcms/kcm_history.so
 %{_kf6_plugindir}/konqueror_kcms/kcm_konq.so
 %{_kf6_plugindir}/konqueror_kcms/kcm_performance.so
+%{_kf6_plugindir}/konqueror_kcms/kcm_speeddial.so
 %{_kf6_plugindir}/konqueror_kcms/khtml_*.so
 %{_kf6_sharedir}/kcmcss/
 %{_kf6_sharedir}/kconf_update/webenginepart.upd
