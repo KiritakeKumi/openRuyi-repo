@@ -8,13 +8,13 @@
 %define qt6_version 6.9.0
 
 Name:           baloo-widgets
-Version:        25.12.3
+Version:        26.04.2
 Release:        %autorelease
 Summary:        Framework for searching and managing metadata
 License:        GPL-2.0-or-later AND LGPL-2.1-or-later AND LGPL-3.0-only
 URL:            https://www.kde.org
 VCS:            git:https://invent.kde.org/libraries/baloo-widgets.git
-#!RemoteAsset:  sha256:0b03fc0adfeda46deeb53fb5e22bb9108715ebc1d8f5b19ca4e5c2216332c711
+#!RemoteAsset:  sha256:7daf3e6821b9988c171a316cb547591fba2caca78818c2da1d409603ea93c00a
 Source0:        https://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz
 BuildSystem:    cmake
 
