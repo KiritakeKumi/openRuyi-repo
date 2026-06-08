@@ -8,14 +8,17 @@
 %define qt6_version 6.9.0
 
 Name:           kpmcore
-Version:        25.12.2
+Version:        26.04.2
 Release:        %autorelease
 Summary:        KDE Partition Manager core library
 License:        GPL-3.0-or-later
 URL:            https://www.kde.org
 VCS:            git:https://invent.kde.org/system/kpmcore
-#!RemoteAsset:  sha256:3220fe4b3095b2df6d2381f8adf3dd2f50af085ebf3bdf8dee97f7c3db7b4933
+#!RemoteAsset:  sha256:38ad9c1b52115858cd78fe76355d81bb4db84ad2c31b0933bcf58f4c85b51023
 Source0:        https://download.kde.org/stable/release-service/%{version}/src/%{name}-%{version}.tar.xz
+BuildSystem:    cmake
+
+BuildOption(conf):  -DBUILD_TESTING=OFF
 
 BuildRequires:  kf6-extra-cmake-modules >= %{kf6_version}
 BuildRequires:  pkgconfig
@@ -43,17 +46,6 @@ Library for managing partitions. Common code for KDE Partition Manager and
 other projects.
 
 Development package for kpmcore.
-
-%prep
-%autosetup -p1
-
-%build
-%cmake_kf6
-
-%kf6_build
-
-%install
-%kf6_install
 
 %files
 %license LICENSES/*
