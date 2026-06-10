@@ -21,6 +21,7 @@ BuildRequires:  kf6-extra-cmake-modules
 Requires:       plasma-workspace
 Requires:       plasma-desktop
 Requires:       plasma-session
+Requires:       plasma5support
 Requires:       systemsettings
 Requires:       konsole
 Requires:       dolphin
