@@ -7,18 +7,18 @@
 %define qt6_version 6.8.0
 
 %define rname krunner
-# Full KF6 version (e.g. 6.26.0)
+# Full KF6 version (e.g. 6.27.0)
 %{!?_kf6_version: %global _kf6_version %{version}}
 
 Name:           kf6-krunner
-Version:        6.26.0
+Version:        6.27.0
 Release:        %autorelease
 Summary:        KDE Framework for providing different actions given a string query
 License:        LGPL-2.1-or-later
 URL:            https://www.kde.org
 VCS:            git:https://invent.kde.org/frameworks/krunner.git
-#!RemoteAsset:  sha256:3519c7fe170be1359a4c38dd5269de64c0208ccfeb950661002ddfa4e92f2bf0
-Source:         https://download.kde.org/stable/frameworks/6.26/%{rname}-%{version}.tar.xz
+#!RemoteAsset:  sha256:46d06321bbccadb8f3fbb948ffaac5eff18dad9552fde677761ddddb9470202f
+Source:         https://download.kde.org/stable/frameworks/6.27/%{rname}-%{version}.tar.xz
 BuildSystem:    cmake
 
 BuildOption(conf):  -DBUILD_TESTING=OFF
@@ -53,6 +53,7 @@ Files needed for developing custom runners or frontends.
 %doc README.md
 %license LICENSES/*
 %{_kf6_libdir}/libKF6Runner.so.*
+%{_kf6_libdir}/qt6/metatypes/qt6kf6runner_metatypes.json
 %{_kf6_debugdir}/krunner.categories
 %{_kf6_debugdir}/krunner.renamecategories
 
