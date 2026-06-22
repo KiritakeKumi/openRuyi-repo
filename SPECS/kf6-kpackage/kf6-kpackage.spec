@@ -7,18 +7,18 @@
 %define qt6_version 6.8.0
 
 %define rname kpackage
-# Full KF6 version (e.g. 6.26.0)
+# Full KF6 version (e.g. 6.27.0)
 %{!?_kf6_version: %global _kf6_version %{version}}
 
 Name:           kf6-kpackage
-Version:        6.26.0
+Version:        6.27.0
 Release:        %autorelease
 Summary:        Non-binary asset user-installable package managing framework
 License:        GPL-2.0-or-later AND LGPL-2.0-or-later
 URL:            https://www.kde.org
 VCS:            git:https://invent.kde.org/frameworks/kpackage
-#!RemoteAsset:  sha256:313cda4a335ecdb67bb8e2fcc15bdeb5970db17d5597282ca655bf97a98abab5
-Source:         https://download.kde.org/stable/frameworks/6.26/%{rname}-%{version}.tar.xz
+#!RemoteAsset:  sha256:5fa4b07f729c3ff6b7f362d318374810fa55b13a922d2b240462eb8efc1045e8
+Source:         https://download.kde.org/stable/frameworks/6.27/%{rname}-%{version}.tar.xz
 BuildSystem:    cmake
 
 BuildOption(conf):  -DBUILD_TESTING=OFF
