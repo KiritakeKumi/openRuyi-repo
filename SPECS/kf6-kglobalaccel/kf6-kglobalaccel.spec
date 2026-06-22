@@ -7,18 +7,18 @@
 %define qt6_version 6.8.0
 
 %define rname kglobalaccel
-# Full KF6 version (e.g. 6.26.0)
+# Full KF6 version (e.g. 6.27.0)
 %{!?_kf6_version: %global _kf6_version %{version}}
 
 Name:           kf6-kglobalaccel
-Version:        6.26.0
+Version:        6.27.0
 Release:        %autorelease
 Summary:        Global desktop keyboard shortcuts
 License:        LGPL-2.1-or-later
 URL:            https://www.kde.org
 VCS:            git:https://invent.kde.org/frameworks/kglobalaccel
-#!RemoteAsset:  sha256:3f19d22d143577e5ddcc883170fe19a56f8f65766e41c4f9c011c4dfbde17a61
-Source:         https://download.kde.org/stable/frameworks/6.26/%{rname}-%{version}.tar.xz
+#!RemoteAsset:  sha256:e7ba1601a159ea79f424a4d53647415393f90dbeda1e3216d023eeb5420837d3
+Source:         https://download.kde.org/stable/frameworks/6.27/%{rname}-%{version}.tar.xz
 BuildSystem:    cmake
 
 BuildOption(conf):  -DBUILD_TESTING=OFF
