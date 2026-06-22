@@ -8,19 +8,19 @@
 
 %define rname kguiaddons
 
-# Full KF6 version (e.g. 6.26.0)
+# Full KF6 version (e.g. 6.27.0)
 # %%{!?_kf6_version: %%global _kf6_version %%{version}}
-%global _kf6_version 6.26.0
+%global _kf6_version 6.27.0
 
 Name:           kf6-kguiaddons
-Version:        6.26.0
+Version:        6.27.0
 Release:        %autorelease
 Summary:        Utilities for graphical user interfaces
 License:        LGPL-2.1-or-later
 URL:            https://www.kde.org
 VCS:            git:https://invent.kde.org/frameworks/kguiaddons
-#!RemoteAsset:  sha256:8375342f852104f36fd72a6870eb9795183af4516592cd6fa73445ea6b813172
-Source:         https://download.kde.org/stable/frameworks/6.26/%{rname}-%{version}.tar.xz
+#!RemoteAsset:  sha256:29b043480c45d3e51c57cac74fd83589cc7729c907a6585b72880cbf07feaf82
+Source:         https://download.kde.org/stable/frameworks/6.27/%{rname}-%{version}.tar.xz
 BuildSystem:    cmake
 
 BuildOption(conf):  -DBUILD_TESTING=OFF
@@ -77,6 +77,7 @@ of colors, fonts, text, images, keyboard input. Development files.
 %{_kf6_bindir}/kde-geo-uri-handler
 %{_kf6_debugdir}/kguiaddons.categories
 %{_kf6_libdir}/libKF6GuiAddons.so.*
+%{_kf6_libdir}/qt6/metatypes/qt6kf6guiaddons_metatypes.json
 %{_kf6_qmldir}/org/kde/guiaddons/
 
 %files devel
