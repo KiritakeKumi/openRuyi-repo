@@ -13,18 +13,17 @@
 %{!?_plasma6_version: %define _plasma6_version %(echo %{_plasma6_bugfix} | awk -F. '{print $1"."$2}')}
 
 Name:           libplasma
-Version:        6.6.5
+Version:        6.7.1
 Release:        %autorelease
 Summary:        Plasma library and runtime components based upon KF6 and Qt6
 License:        GPL-2.0-or-later AND LGPL-2.0-or-later
 URL:            https://www.kde.org
 VCS:            git:https://invent.kde.org/plasma/libplasma
-#!RemoteAsset:  sha256:380576afee2160560f559184e32bd02eb1caeb7dd95899d92e50832bc358502c
+#!RemoteAsset:  sha256:258933f4148160f82728287166133b7bc602a0af57fe8b3cac27238bfc04fd4a
 Source:         https://invent.kde.org/plasma/%{name}/-/archive/v%{version}/%{name}-v%{version}.tar.gz
 BuildSystem:    cmake
 
 BuildOption(conf):  -DBUILD_TESTING=OFF
-BuildOption(conf):  -DBUILD_QCH:BOOL=TRUE
 
 BuildRequires:  doxygen
 BuildRequires:  kf6-extra-cmake-modules >= %{kf6_version}
@@ -64,6 +63,7 @@ BuildRequires:  qt6-linguist
 BuildRequires:  pkgconfig(egl)
 BuildRequires:  pkgconfig(gl)
 BuildRequires:  pkgconfig(wayland-client) >= 1.9
+BuildRequires:  pkgconfig(wayland-protocols) >= 1.46
 BuildRequires:  pkgconfig(x11)
 BuildRequires:  pkgconfig(xcb)
 BuildRequires:  pkgconfig(xcb-composite)
@@ -71,6 +71,8 @@ BuildRequires:  pkgconfig(xcb-damage)
 BuildRequires:  pkgconfig(xcb-render)
 BuildRequires:  pkgconfig(xcb-shape)
 BuildRequires:  pkgconfig(xcb-xfixes)
+
+Obsoletes:      libplasma-doc < %{version}-%{release}
 
 %description
 Plasma library and runtime components based upon KF6 and Qt6
@@ -86,13 +88,6 @@ Conflicts:      plasma-framework-devel
 
 %description    devel
 Plasma library and runtime components based upon KF6 and Qt6
-
-%package        doc
-Summary:        Developer Documentation files for %{name}
-BuildArch:      noarch
-
-%description    doc
-Developer Documentation files for %{name} for use with KDevelop or QtCreator.
 
 %install -a
 # todo: fix the name error.
@@ -115,7 +110,6 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/*@*
 %{_datadir}/plasma/desktoptheme/
 
 %files devel
-%doc %{_kf6_qchdir}/Plasma.*
 %{_kf6_cmakedir}/Plasma/
 %{_kf6_cmakedir}/PlasmaQuick/
 %{_includedir}/Plasma/
@@ -123,10 +117,6 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/*@*
 %{_kf6_libdir}/libPlasma.so
 %{_kf6_libdir}/libPlasmaQuick.so
 %{_kf6_sharedir}/kdevappwizard/
-
-%files doc
-%{_kf6_qchdir}/*.qch
-%{_kf6_qchdir}/*.tags
 
 %changelog
 %autochangelog
