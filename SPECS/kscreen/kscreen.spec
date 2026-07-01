@@ -15,19 +15,20 @@
 %{!?_plasma6_version: %define _plasma6_version %(echo %{_plasma6_bugfix} | awk -F. '{print $1"."$2}')}
 
 Name:           kscreen
-Version:        6.6.5
+Version:        6.7.1
 Release:        %autorelease
 Summary:        Screen management software by KDE
 License:        GPL-2.0-or-later
 URL:            https://www.kde.org
 VCS:            git:https://invent.kde.org/plasma/kscreen.git
-#!RemoteAsset:  sha256:ab629c7d8b271bc4741d73f5aa67c99c3c28d2c9b5f4313a38aad7b933b82c51
+#!RemoteAsset:  sha256:cf44c17e48afa069f4d654c51d1c0bfc7d91c2763a8482c55e4a757181a34b02
 Source:         https://invent.kde.org/plasma/%{name}/-/archive/v%{version}/%{name}-v%{version}.tar.gz
 BuildSystem:    cmake
 
 BuildOption(conf):  -DBUILD_TESTING=OFF
 
 BuildRequires:  kf6-extra-cmake-modules >= %{kf6_version}
+BuildRequires:  kf6-kitemmodels
 BuildRequires:  cmake(KF6KirigamiPlatform) >= %{kf6_version}
 BuildRequires:  pkgconfig
 BuildRequires:  qt6-qtbase-private-devel >= %{qt6_version}
@@ -38,12 +39,14 @@ BuildRequires:  cmake(KF6DBusAddons) >= %{kf6_version}
 BuildRequires:  cmake(KF6GlobalAccel) >= %{kf6_version}
 BuildRequires:  cmake(KF6I18n) >= %{kf6_version}
 BuildRequires:  cmake(KF6IconThemes) >= %{kf6_version}
+BuildRequires:  cmake(KF6ImageFormats) >= %{kf6_version}
 BuildRequires:  cmake(KF6KCMUtils) >= %{kf6_version}
 BuildRequires:  cmake(KF6Screen) >= %{_plasma6_bugfix}
 BuildRequires:  cmake(KF6Svg) >= %{kf6_version}
 BuildRequires:  cmake(KF6XmlGui) >= %{kf6_version}
 BuildRequires:  cmake(LayerShellQt) >= %{_plasma6_bugfix}
 BuildRequires:  cmake(Plasma) >= %{_plasma6_bugfix}
+BuildRequires:  cmake(Plasma5Support) >= %{_plasma6_bugfix}
 BuildRequires:  cmake(PlasmaQuick) >= %{_plasma6_bugfix}
 BuildRequires:  cmake(Qt6QuickControls2) >= %{qt6_version}
 BuildRequires:  cmake(Qt6Sensors) >= %{qt6_version}
