@@ -13,13 +13,13 @@
 %{!?_plasma6_version: %define _plasma6_version %(echo %{_plasma6_bugfix} | awk -F. '{print $1"."$2}')}
 
 Name:           plasma-systemmonitor
-Version:        6.6.5
+Version:        6.7.1
 Release:        %autorelease
 Summary:        An application for monitoring system resources
 License:        GPL-3.0-only
 URL:            https://www.kde.org
 VCS:            git:https://invent.kde.org/plasma/plasma-systemmonitor.git
-#!RemoteAsset:  sha256:beb5a0cbcb877fcbfb57c95c963574c2465b810350e6d517f69128e7fb54670a
+#!RemoteAsset:  sha256:62c4982d3ec3040933894c57734eecba44dfb08b6a8806d00a581bfaae0d2f8a
 Source0:        https://invent.kde.org/plasma/%{name}/-/archive/v%{version}/%{name}-v%{version}.tar.gz
 BuildSystem:    cmake
 
