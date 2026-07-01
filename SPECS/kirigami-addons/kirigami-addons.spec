@@ -8,7 +8,7 @@
 %define qt6_version 6.6.0
 
 Name:           kirigami-addons
-Version:        1.10.0
+Version:        1.12.1
 Release:        %autorelease
 Summary:        Add-ons for the Kirigami framework
 License:        LGPL-3.0-only
@@ -72,6 +72,7 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/*@*
 %{_kf6_qmldir}/org/kde/kirigamiaddons/
 %{_kf6_libdir}/libKirigamiAddonsStatefulApp.so.*
 %{_kf6_libdir}/libKirigamiApp.so.*
+%{_kf6_libdir}/libKirigamiAddonsComponents.so.*
 
 %files devel
 %{_kf6_cmakedir}/KF6KirigamiAddons/
@@ -79,6 +80,7 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/*@*
 %{_includedir}/KirigamiAddonsStatefulApp/
 %{_kf6_libdir}/libKirigamiAddonsStatefulApp.so
 %{_kf6_libdir}/libKirigamiApp.so
+%{_kf6_libdir}/libKirigamiAddonsComponents.so
 %dir %{_kf6_sharedir}/kdevappwizard/
 %dir %{_kf6_sharedir}/kdevappwizard/templates/
 %{_kf6_sharedir}/kdevappwizard/templates/kirigamiaddons6.tar.bz2
