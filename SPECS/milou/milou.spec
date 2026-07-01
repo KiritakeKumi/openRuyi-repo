@@ -13,13 +13,13 @@
 %{!?_plasma6_version: %define _plasma6_version %(echo %{_plasma6_bugfix} | awk -F. '{print $1"."$2}')}
 
 Name:           milou
-Version:        6.6.5
+Version:        6.7.1
 Release:        %autorelease
 Summary:        Dedicated search application built on top of Baloo
 License:        GPL-2.0-or-later AND LGPL-2.1-or-later
 URL:            https://www.kde.org
 VCS:            git:https://invent.kde.org/plasma/milou.git
-#!RemoteAsset:  sha256:700c77213622e9f914f407e6c5e42dad28846b6704d40cfc8cbdfb8f316ba96f
+#!RemoteAsset:  sha256:750adb50d5448ae2b7faafee886192366bfbc5ad9306cdf41fbeabd541038c2a
 Source:         https://invent.kde.org/plasma/%{name}/-/archive/v%{version}/%{name}-v%{version}.tar.gz
 BuildSystem:    cmake
 
