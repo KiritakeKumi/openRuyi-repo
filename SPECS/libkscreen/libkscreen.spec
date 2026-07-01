@@ -15,13 +15,13 @@
 %{!?_plasma6_version: %define _plasma6_version %(echo %{_plasma6_bugfix} | awk -F. '{print $1"."$2}')}
 
 Name:           libkscreen
-Version:        6.6.5
+Version:        6.7.1
 Release:        %autorelease
 Summary:        Plasma screen management library
 License:        GPL-2.0-or-later
 URL:            https://www.kde.org
 VCS:            git:https://invent.kde.org/plasma/libkscreen.git
-#!RemoteAsset:  sha256:e59e1f10c84ffaa42e1eb5d312da33dd472a2895ccabc90bee8b238f3b4b842e
+#!RemoteAsset:  sha256:4c2d80b327e97154b8051239e51037f92568d6dcc08d26f52d59627ec432460f
 Source:         https://invent.kde.org/plasma/%{name}/-/archive/v%{version}/%{name}-v%{version}.tar.gz
 BuildSystem:    cmake
 
