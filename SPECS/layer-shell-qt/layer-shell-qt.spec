@@ -5,13 +5,13 @@
 # SPDX-License-Identifier: MulanPSL-2.0
 
 Name:           layer-shell-qt
-Version:        6.6.5
+Version:        6.7.1
 Release:        %autorelease
 Summary:        Library to easily use clients based on wlr-layer-shell
 License:        BSD-3-Clause AND CC0-1.0 AND LGPL-3.0-or-later AND MIT
 URL:            https://www.kde.org
 VCS:            git:https://invent.kde.org/plasma/layer-shell-qt.git
-#!RemoteAsset:  sha256:b663c697ce1ed96347115d367238978217a29c60bba75491a7223bbb6782e619
+#!RemoteAsset:  sha256:479dde9c1749c9da3b1c3672cfe50e2d6897f8774098255ac921e1db7442bf7d
 Source:         https://invent.kde.org/plasma/%{name}/-/archive/v%{version}/%{name}-v%{version}.tar.gz
 BuildSystem:    cmake
 
