@@ -16,13 +16,13 @@
 %{!?_plasma6_version: %define _plasma6_version %(echo %{_plasma6_bugfix} | awk -F. '{print $1"."$2}')}
 
 Name:           kwin
-Version:        6.6.5
+Version:        6.7.1
 Release:        %autorelease
 Summary:        KDE Window Manager
 License:        GPL-2.0-or-later AND GPL-3.0-or-later
 URL:            https://www.kde.org
 VCS:            git:https://invent.kde.org/plasma/kwin.git
-#!RemoteAsset:  sha256:c99ca0affeaf9e6bdacfb06cac86677fcf3e4d93aae09b05f1f8986a12ec5e65
+#!RemoteAsset:  sha256:caa7c25bf0c9c0d9c4ebeb9b67780a18f2dd7053fa702de512b655fa9deea219
 Source:         https://invent.kde.org/plasma/%{name}/-/archive/v%{version}/%{name}-v%{version}.tar.gz
 BuildSystem:    cmake
 
@@ -177,6 +177,7 @@ This package provides development files.
 %{_kf6_applicationsdir}/kcm_kwinxwayland.desktop
 %{_kf6_applicationsdir}/kcm_virtualkeyboard.desktop
 %{_kf6_applicationsdir}/org.kde.kwin.killer.desktop
+%{_kf6_applicationsdir}/org.kde.kwin.dialoghelper.desktop
 %{_kf6_bindir}/kwin_wayland_wrapper
 %{_kf6_bindir}/kwindowprop
 %{_kf6_configkcfgdir}/*
@@ -193,7 +194,6 @@ This package provides development files.
 %{_kf6_libdir}/libkcmkwincommon.so.*
 %{_kf6_libdir}/libkwin.so.*
 %{_kf6_notificationsdir}/kwin.notifyrc
-%{_libdir}/qt6/plugins/kwin/plugins/screencast.so
 %dir %{_kf6_plugindir}/kwin
 %dir %{_kf6_plugindir}/kwin/effects
 %dir %{_kf6_plugindir}/kwin/effects/configs
@@ -241,6 +241,8 @@ This package provides development files.
 %{_libexecdir}/kwin_killer_helper
 %{_libexecdir}/kwin-applywindowdecoration
 %{_libexecdir}/kwin-tabbox-preview
+%{_libexecdir}/kwin_dialog_helper
+%{_libexecdir}/kwin_eis_prompter
 %{_userunitdir}/plasma-kwin_wayland.service
 %{_datadir}/locale/*/LC_MESSAGES/kwin*.mo
 %{_datadir}/locale/*/LC_MESSAGES/kcm*.mo
