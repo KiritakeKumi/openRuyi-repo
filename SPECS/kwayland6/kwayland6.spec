@@ -10,13 +10,13 @@
 %define rname kwayland
 
 Name:           kwayland6
-Version:        6.6.5
+Version:        6.7.1
 Release:        %autorelease
 Summary:        KDE Wayland library
 License:        LGPL-2.1-or-later
 URL:            https://www.kde.org
 VCS:            git:https://invent.kde.org/plasma/kwayland
-#!RemoteAsset:  sha256:afbcd53ca8a5fb501038415f1473c3d11556eb56ed8f653ece03f77d799cad01
+#!RemoteAsset:  sha256:34f2dbce297f5bfce5bffba3c92f174d9a774accd28d2c677e786c70c9ede4bf
 Source:         https://download.kde.org/stable/plasma/%{version}/%{rname}-%{version}.tar.xz
 BuildSystem:    cmake
 
@@ -30,7 +30,7 @@ BuildRequires:  xcb-util
 BuildRequires:  qt6-qtbase-gui >= %{qt6_version}
 BuildRequires:  qt6-doctools
 BuildRequires:  qt6-qtwayland-devel >= %{qt6_version}
-BuildRequires:  cmake(PlasmaWaylandProtocols) >= 1.14.0
+BuildRequires:  cmake(PlasmaWaylandProtocols) >= 1.21.0
 BuildRequires:  cmake(Qt6Concurrent) >= %{qt6_version}
 BuildRequires:  cmake(Qt6Gui) >= %{qt6_version}
 BuildRequires:  cmake(Qt6Test) >= %{qt6_version}
