@@ -14,13 +14,13 @@
 %{!?_plasma6_version: %define _plasma6_version %(echo %{_plasma6_bugfix} | awk -F. '{print $1"."$2}')}
 
 Name:           knighttime
-Version:        6.6.5
+Version:        6.7.1
 Release:        %autorelease
 Summary:        Day-night cycle helper library
 License:        LGPL-2.1-or-later
 URL:            https://www.kde.org
 VCS:            git:https://invent.kde.org/plasma/knighttime.git
-#!RemoteAsset:  sha256:dcc12f901c0809c0a290b84dca70762c87666331450ebe878da59d69a6d3d140
+#!RemoteAsset:  sha256:200db8131a10c9e2e16b605406fbd48e135403894ba609b26e9b92aee067f351
 Source:         https://invent.kde.org/plasma/%{name}/-/archive/v%{version}/%{name}-v%{version}.tar.gz
 BuildSystem:    cmake
 
