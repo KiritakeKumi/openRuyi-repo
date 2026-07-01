@@ -8,13 +8,13 @@
 %define qt6_version 6.9.0
 
 Name:           sddm-kcm
-Version:        6.6.5
+Version:        6.7.1
 Release:        %autorelease
 Summary:        A sddm control module for KDE
 License:        GPL-2.0-only
 URL:            https://www.kde.org
 VCS:            git:https://invent.kde.org/plasma/sddm-kcm.git
-#!RemoteAsset:  sha256:e94ff27dd0a3a701eb04b5a87041795137f5624d3bea986f950403af79f0370b
+#!RemoteAsset:  sha256:3fa0fd2e661d88cc412b5a4568afb9eee4d07acadad6db44f00d5df4eff42327
 Source:         https://invent.kde.org/plasma/%{name}/-/archive/v%{version}/%{name}-v%{version}.tar.gz
 BuildSystem:    cmake
 
