@@ -15,13 +15,13 @@
 %{!?_plasma6_version: %define _plasma6_version %(echo %{_plasma6_bugfix} | awk -F. '{print $1"."$2}')}
 
 Name:           kpipewire
-Version:        6.6.5
+Version:        6.7.1
 Release:        %autorelease
 Summary:        PipeWire integration for KDE Plasma
 License:        LGPL-2.0-only AND LGPL-3.0-only
 URL:            https://www.kde.org
 VCS:            git:https://invent.kde.org/plasma/kpipewire.git
-#!RemoteAsset:  sha256:ca35be322c83dd1021c126d30ea7b33653c83f6bd397f76aa0e3e333ef2aa858
+#!RemoteAsset:  sha256:a29b6d8614683038e98fbc696f78dd5137cb642abcddb73781f8d0796fc4c014
 Source:         https://invent.kde.org/plasma/%{name}/-/archive/v%{version}/%{name}-v%{version}.tar.gz
 BuildSystem:    cmake
 
