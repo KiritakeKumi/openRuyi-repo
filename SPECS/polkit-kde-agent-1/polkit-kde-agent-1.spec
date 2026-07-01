@@ -8,13 +8,13 @@
 %define qt6_version 6.9.0
 
 Name:           polkit-kde-agent-1
-Version:        6.6.5
+Version:        6.7.1
 Release:        %autorelease
 Summary:        PolicyKit authentication agent for Plasma
 License:        GPL-2.0-only AND LGPL-2.1-or-later
 URL:            https://www.kde.org/
 VCS:            git:https://invent.kde.org/plasma/polkit-kde-agent-1.git
-#!RemoteAsset:  sha256:a5d80462970bd987fc386f1445c6451e13786edaab6ad7741b44dabce7e387a1
+#!RemoteAsset:  sha256:a2db3a07634d664105ab701718aa492a0bb0ea98c3a9731f66c3eb9afa3920ce
 Source:         https://invent.kde.org/plasma/%{name}/-/archive/v%{version}/%{name}-v%{version}.tar.gz
 BuildSystem:    cmake
 
