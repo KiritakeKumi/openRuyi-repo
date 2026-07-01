@@ -8,13 +8,13 @@
 %define qt6_version 6.9.0
 
 Name:           kde-cli-tools
-Version:        6.6.5
+Version:        6.7.1
 Release:        %autorelease
 Summary:        Additional CLI tools for KDE applications
 License:        GPL-2.0-or-later
 URL:            https://www.kde.org
 VCS:            git:https://invent.kde.org/plasma/kde-cli-tools.git
-#!RemoteAsset:  sha256:a7d8cd8b6c0cf4fdc43b47d0edf5256bb1f8e7d30fe32855155afe4e70d61815
+#!RemoteAsset:  sha256:056db6dd2d1761b7d005d27876f0afc798ab4b0768101f5208a87f510f87ee82
 Source:         https://invent.kde.org/plasma/%{name}/-/archive/v%{version}/%{name}-v%{version}.tar.gz
 BuildSystem:    cmake
 
