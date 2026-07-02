@@ -347,12 +347,7 @@ test "${clang_major}" = "%{maj_ver}"
 test -n "${clang_minor}"
 test -n "${clang_patch}"
 
-install -p -m0644 -D %{SOURCE0} %{buildroot}%{_rpmmacrodir}/macros.clang%{maj_ver}
-sed -i -e "s|@@CLANG_MAJOR_VERSION@@|${clang_major}|" \
-       -e "s|@@CLANG_MINOR_VERSION@@|${clang_minor}|" \
-       -e "s|@@CLANG_PATCH_VERSION@@|${clang_patch}|" \
-       %{buildroot}%{_rpmmacrodir}/macros.clang%{maj_ver}
-echo "%%clang%{maj_ver}_resource_dir %%{_prefix}/lib/clang/%{maj_ver}" >> %{buildroot}%{_rpmmacrodir}/macros.clang%{maj_ver}
+install -p -m0644 -D %{SOURCE0} %{buildroot}%{_rpmmacrodir}/macros.clang
 
 %post -n lld
 update-alternatives --install %{_bindir}/ld ld %{_bindir}/ld.lld 1
@@ -439,7 +434,7 @@ fi
 %files -n clang-static
 
 %files -n clang-rpm-macros
-%{_rpmmacrodir}/macros.clang%{maj_ver}
+%{_rpmmacrodir}/macros.clang
 
 %files -n flang
 %{_bindir}/flang
