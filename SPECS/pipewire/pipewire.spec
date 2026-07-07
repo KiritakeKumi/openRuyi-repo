@@ -93,8 +93,22 @@ BuildRequires:  pkgconfig(libcanberra)
 Requires:       systemd
 Requires:       rtkit
 
+Recommends:     %{name}-jack%{?_isa} = %{version}-%{release}
+
 %description
 PipeWire is a multimedia server for Linux.
+
+%package        jack
+Summary:        PipeWire JACK implementation
+Requires:       %{name}%{?_isa} = %{version}-%{release}
+Provides:       jack-audio-connection-kit
+
+%description    jack
+This package contains a JACK implementation based on PipeWire. It ships
+drop-in replacement libraries (libjack.so.0 and friends) and registers
+them with the dynamic linker so that JACK applications run on top of
+PipeWire without a separate JACK daemon. To use the real jack2 instead,
+remove this package (the main pipewire package only Recommends it).
 
 %package        devel
 Summary:        Headers and libraries for PipeWire client development
@@ -115,11 +129,6 @@ cp %{buildroot}%{_datadir}/alsa/alsa.conf.d/50-pipewire.conf \
 cp %{buildroot}%{_datadir}/alsa/alsa.conf.d/99-pipewire-default.conf \
         %{buildroot}%{_sysconfdir}/alsa/conf.d/99-pipewire-default.conf
 
-# Register PipeWire's JACK replacement libraries in the dynamic linker
-# search path, otherwise applications linked against libjack.so.0
-# (e.g. mpv) fail to start with "cannot open shared object file".
-# A real jack2 install (libjack.so.0 in %{_libdir}, a trusted default
-# dir) still takes precedence over this drop-in.
 install -d -m 0755 %{buildroot}%{_sysconfdir}/ld.so.conf.d/
 echo "%{_libdir}/pipewire-%{apiversion}/jack" \
         > %{buildroot}%{_sysconfdir}/ld.so.conf.d/pipewire-jack.conf
@@ -174,7 +183,6 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/*@*
 %{_sysusersdir}/pipewire.conf
 # libs
 %{_libdir}/libpipewire-%{apiversion}.so.*
-%{_libdir}/pipewire-%{apiversion}/jack/libjack*.so.*
 %{_libdir}/pipewire-%{apiversion}/libpipewire-module-access.so
 %{_libdir}/pipewire-%{apiversion}/libpipewire-module-adapter.so
 %{_libdir}/pipewire-%{apiversion}/libpipewire-module-avb.so
@@ -248,7 +256,6 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/*@*
 %{_datadir}/doc/pipewire/html
 # utils
 %{_bindir}/pw-cat
-%{_bindir}/pw-jack
 %{_bindir}/pw-cli
 %{_bindir}/pw-config
 %{_bindir}/pw-container
@@ -279,7 +286,6 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/*@*
 %{_datadir}/alsa/alsa.conf.d/99-pipewire-default.conf
 %config(noreplace) %{_sysconfdir}/alsa/conf.d/50-pipewire.conf
 %config(noreplace) %{_sysconfdir}/alsa/conf.d/99-pipewire-default.conf
-%{_sysconfdir}/ld.so.conf.d/pipewire-jack.conf
 # vulkan
 %{_libdir}/spa-%{spaversion}/vulkan/
 # pulseaudio
@@ -301,15 +307,20 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/*@*
 %{_datadir}/pipewire/pipewire.conf.d/20-upmix.conf
 %{_datadir}/pipewire/client.conf.d/20-upmix.conf
 %{_datadir}/pipewire/pipewire-pulse.conf.d/20-upmix.conf
+
+%files jack
+%{_bindir}/pw-jack
+%{_libdir}/pipewire-%{apiversion}/jack/libjack*.so.*
 %{_datadir}/pipewire/jack.conf
+%{_sysconfdir}/ld.so.conf.d/pipewire-jack.conf
+%{_libdir}/pipewire-%{apiversion}/jack/libjack.so
+%{_libdir}/pipewire-%{apiversion}/jack/libjacknet.so
+%{_libdir}/pipewire-%{apiversion}/jack/libjackserver.so
 
 %files devel
 %{_libdir}/libpipewire-%{apiversion}.so
 %{_includedir}/pipewire-%{apiversion}/
 %{_includedir}/spa-%{spaversion}/
-%{_libdir}/pipewire-%{apiversion}/jack/libjack.so
-%{_libdir}/pipewire-%{apiversion}/jack/libjacknet.so
-%{_libdir}/pipewire-%{apiversion}/jack/libjackserver.so
 %{_libdir}/pkgconfig/libpipewire-%{apiversion}.pc
 %{_libdir}/pkgconfig/libspa-%{spaversion}.pc
 
