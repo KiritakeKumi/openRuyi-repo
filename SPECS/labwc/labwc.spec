@@ -15,6 +15,10 @@ URL:            https://github.com/labwc/labwc
 Source0:        https://github.com/labwc/labwc/archive/refs/tags/%{version}.tar.gz
 BuildSystem:    meson
 
+# Backport of upstream PR labwc/labwc#3656
+# It can be removed in the next release, as it has been accepted upstream.
+Patch0:         0001-output-force-initial-modeset-commit-on-new-output.patch
+
 BuildOption(conf):  -Dxwayland=disabled
 
 BuildRequires:  meson >= 0.59.0
