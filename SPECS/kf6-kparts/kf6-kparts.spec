@@ -7,18 +7,18 @@
 %define qt6_version 6.8.0
 
 %define rname kparts
-# Full KF6 version (e.g. 6.27.0)
+# Full KF6 version (e.g. 6.28.0)
 %{!?_kf6_version: %global _kf6_version %{version}}
 
 Name:           kf6-kparts
-Version:        6.27.0
+Version:        6.28.0
 Release:        %autorelease
 Summary:        Plugin framework for user interface components
 License:        LGPL-2.1-or-later
 URL:            https://www.kde.org
 VCS:            git:https://invent.kde.org/frameworks/kparts
-#!RemoteAsset:  sha256:0c2ce39f110e12ff0882c725bee7455b9085489c12d31eb4b3164b150fb8de24
-Source:         https://download.kde.org/stable/frameworks/6.27/%{rname}-%{version}.tar.xz
+#!RemoteAsset:  sha256:fbdbab6dfdc16be97440a6e8032f30d1571eb72489c3d36801df6fb419dd4563
+Source:         https://download.kde.org/stable/frameworks/6.28/%{rname}-%{version}.tar.xz
 BuildSystem:    cmake
 
 BuildOption(conf):  -DBUILD_TESTING=OFF
@@ -61,6 +61,9 @@ elaborate widgets with a user-interface defined in terms of actions
 (menu items, toolbar icons). Development files.
 
 %install -a
+# todo: fix the name error.
+# Avoid illegal package names
+rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/*@*
 # Use langpacks macro to auto-split translations
 %find_lang %{name} --with-qt --all-name --generate-subpackages
 
