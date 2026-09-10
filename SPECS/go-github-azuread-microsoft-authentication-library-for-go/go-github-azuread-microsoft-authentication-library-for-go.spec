@@ -41,6 +41,7 @@ Requires:       go(github.com/golang-jwt/jwt/v5)
 Requires:       go(github.com/google/uuid)
 Requires:       go(github.com/kylelemons/godebug)
 Requires:       go(github.com/pkg/browser)
+Requires:       go(golang.org/x/sync)
 
 # apps/tests holds standalone test programs (integration/performance/devapps)
 # that need network access, real credentials and extra deps (e.g.
