@@ -18,6 +18,10 @@ Source0:        https://github.com/go4org/go4/archive/%{commit_id}.tar.gz#/%{_na
 BuildArch:      noarch
 BuildSystem:    golangmodules
 
+# Go 1.27 changed runtime.PanicNilError.Error()
+# Remove once upstream is fixed
+Patch2000:      2000-functest-avoid-hard-coding-PanicNilError-message.patch
+
 BuildOption(prep):  -n %{_name}-%{commit_id}
 
 BuildRequires:  go
